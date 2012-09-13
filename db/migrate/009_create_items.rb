@@ -20,7 +20,7 @@ Sequel.migration do
       # index [:subcategory_id, :subcategory_category_id]
       
       validate do
-        presence [:title, :description, :collection_id, :category_id]
+        presence [:title, :description, :collection_id, :category_id, :language_id]
         max_length 255, [:title, :description]
       end
       
