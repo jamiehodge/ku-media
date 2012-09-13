@@ -1,0 +1,24 @@
+GIT
+  remote: git://github.com/jeremyevans/sequel.git
+  revision: ed3b8a5fb5ff17f86373086f5f638d43c908799d
+  specs:
+    sequel (3.39.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    ku-ldap (0.0.1)
+      net-ldap
+    net-ldap (0.4.0)
+    pg (0.14.1)
+    sequel_pg (1.6.0)
+      pg (>= 0.8.0)
+      sequel (>= 3.39.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ku-ldap
+  sequel!
+  sequel_pg
