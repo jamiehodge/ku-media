@@ -6,6 +6,8 @@ require_relative 'group'
 module KU
   module Media
     class Person < Sequel::Model
+      unrestrict_primary_key
+      
       extend Forwardable
       
       DIRECTORY = KU::LDAP
