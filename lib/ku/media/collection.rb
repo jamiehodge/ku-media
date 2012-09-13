@@ -14,7 +14,7 @@ module KU
       many_to_many :tags
       many_to_many :links
       
-      searchable :title, :summary
+      searchable :title, :description
     end
   end
 end
