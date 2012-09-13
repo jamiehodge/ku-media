@@ -19,7 +19,7 @@ module KU
       one_to_one :asset
       one_to_many :consents
   
-      searchable :title, :summary
+      searchable :title, :description
     end
   end
 end
