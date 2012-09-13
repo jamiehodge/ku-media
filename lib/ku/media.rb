@@ -5,7 +5,10 @@ require_relative 'media/config/sequel'
 require_relative 'media/person'
 require_relative 'media/group'
 
+require_relative 'media/keyword'
+require_relative 'media/tag'
 require_relative 'media/link'
+
 require_relative 'media/asset'
 
 require_relative 'media/category'
