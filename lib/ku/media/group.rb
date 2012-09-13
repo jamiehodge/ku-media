@@ -4,6 +4,8 @@ require 'ku/ldap'
 module KU
   module Media
     class Group < Sequel::Model
+      unrestrict_primary_key
+      
       extend Forwardable
       
       DIRECTORY = KU::LDAP
