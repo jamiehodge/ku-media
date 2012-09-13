@@ -11,7 +11,7 @@ module KU
       many_to_one :category
       many_to_one :language
       
-      many_to_many :authors, class: Person
+      many_to_many :authors, class: Person, right_key: :person_id
       many_to_many :keywords
       many_to_many :tags
       many_to_many :links
