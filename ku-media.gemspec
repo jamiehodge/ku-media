@@ -21,5 +21,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency  'ku-ldap'
   gem.add_dependency  'addressable'
   gem.add_dependency  'nokogiri'
+  gem.add_dependency  'queue_classic'
 end
 
