@@ -29,6 +29,11 @@ module KU
         Group.admin_group.member? id
       end
       
+      def validate
+        super
+        errors.add(:entry, 'must exist in directory') unless id && entry
+      end
+      
       private
       
       def entry

@@ -18,6 +18,11 @@ module KU
         self[ENV['LDAP_ADMIN_GROUP'] || 'fak-itm-editor']
       end
       
+      def validate
+        super
+        errors.add(:entry, 'must exist in directory') unless id && entry
+      end
+      
       private
       
       def entry
