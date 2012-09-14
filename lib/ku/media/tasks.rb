@@ -35,24 +35,28 @@ namespace :db do
     
     desc 'Automigrate database'
     task auto: :environment do
-      Sequel::Migrator.run DB, 'db/migrate', target: 0
-      Sequel::Migrator.run DB, 'db/migrate'
+      Sequel::Migrator.run DB, migrate_dir, target: 0
+      Sequel::Migrator.run DB, migrate_dir
       Rake::Task['db:seed'].invoke
     end
     
     desc 'Migrate to'
     task :to, [:target] => :environment do |t, args|
-      Sequel::Migrator.run DB, 'db/migrate', target: args[:target]
+      Sequel::Migrator.run DB, migrate_dir, target: args[:target]
     end
     
     desc 'Migrate up'
     task up: :environment do
-      Sequel::Migrator.run DB, 'db/migrate'
+      Sequel::Migrator.run DB, migrate_dir
     end
     
     desc 'Migrate down'
     task down: :environment do
-      Sequel::Migrator.run DB, 'db/migrate', target: 0
+      Sequel::Migrator.run DB, migrate_dir, target: 0
+    end
+    
+    def migrate_dir
+      File.expand_path('../../../../db/migrate', __FILE__)
     end
   end
   
