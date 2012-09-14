@@ -3,7 +3,7 @@ Sequel.migration do
     create_table :links do
       citext :url, primary_key: true
       
-      String :name, null: false
+      String :title, null: false
       
       Integer :lock_version, default: 0
         
@@ -12,11 +12,11 @@ Sequel.migration do
       
       validate do
         presence [:url, :name]
-        max_length 255, [:url, :name]
+        max_length 255, [:url, :title]
         format %r{^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?}, :url
       end
       
-      full_text_index :name
+      full_text_index :title
     end
     
     create_trigger :links, :timestamp, :moddatetime, args: :updated_at, each_row: true, events: :update
