@@ -19,4 +19,7 @@ Gem::Specification.new do |gem|
   gem.add_dependency  'sequel'
   gem.add_dependency  'sequel_pg'
   gem.add_dependency  'ku-ldap'
+  gem.add_dependency  'addressable'
+  gem.add_dependency  'nokogiri'
 end
+
