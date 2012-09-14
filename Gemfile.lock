@@ -7,9 +7,11 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.3.2)
     ku-ldap (0.0.1)
       net-ldap
     net-ldap (0.4.0)
+    nokogiri (1.5.5)
     pg (0.14.1)
     sequel_pg (1.6.0)
       pg (>= 0.8.0)
@@ -19,6 +21,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   ku-ldap
+  nokogiri
   sequel!
   sequel_pg
