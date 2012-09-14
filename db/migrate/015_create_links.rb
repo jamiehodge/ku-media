@@ -11,7 +11,7 @@ Sequel.migration do
       DateTime :updated_at, null: false, default: Sequel::CURRENT_TIMESTAMP
       
       validate do
-        presence [:url, :name]
+        presence [:url, :title]
         max_length 255, [:url, :title]
         format %r{^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?}, :url
       end
