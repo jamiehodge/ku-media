@@ -2,6 +2,8 @@ require 'bundler/setup'
 
 require_relative 'media/config/sequel'
 
+require_relative 'media/helpers'
+
 require_relative 'media/person'
 require_relative 'media/group'
 
