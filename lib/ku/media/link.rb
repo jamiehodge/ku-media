@@ -10,9 +10,7 @@ module KU
       many_to_many :items
       
       def title
-        Cache.fetch key: 'link_title' do
-          Helpers::URLScraper.new(url).title
-        end
+        Helpers::URLScraper.new(url).title
       end
     end
   end

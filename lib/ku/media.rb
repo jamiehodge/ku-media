@@ -26,4 +26,3 @@ require_relative 'media/consent'
 
 require_relative 'media/cache'
 require_relative 'media/helpers/url_scraper'
-

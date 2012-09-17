@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'addressable/uri'
 require 'nokogiri'
+require 'digest/md5'
 
 module KU
   module Media
@@ -23,15 +24,11 @@ module KU
         end
       
         def doc
-          @doc ||= Nokogiri::HTML body
-        end
-      
-        def body
-          @body ||= data.read
+          @doc ||= Nokogiri::HTML data
         end
       
         def data
-          open(@url)
+          Cache.fetch(key: "link_#{@url}") { open(@url).read }
         rescue SocketError
           StringIO.new
         end
