@@ -1,4 +1,4 @@
-require_relative 'storable'
+require_relative 'helpers/storable'
 
 module KU
   module Media
@@ -8,6 +8,10 @@ module KU
       many_to_one :item
       
       one_to_many :proxies
+      
+      def store
+        ENV['KU_MEDIA_ASSET_STORE']
+      end
     end
   end
 end

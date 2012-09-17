@@ -432,21 +432,24 @@ module KU
         Subcategory.find_or_create id: id, name: name, category_id: 112
       end
       
+      video_size = '720x1280'
+      thumb_size = '270x480'
+      
       Format.find_or_create id: 'poster', options: {
         f: 'image2',
-        s: '1080x1920',
+        s: video_size,
         vframes: 1
       }.hstore
       
       Format.find_or_create id: 'thumb', options: {
         f: 'image2',
-        s: '57x57',
+        s: thumb_size,
         vframes: 1
       }.hstore
       
       Format.find_or_create id: 'mp4', options: {
         f: 'mp4',
-        s: '1080x1920',
+        s: video_size,
         aidc: 'aac',
         ab: '160k',
         vidc: 'libx264',
@@ -459,7 +462,7 @@ module KU
       
       Format.find_or_create id: 'webm', options: {
         f: 'webm',
-        s: '1080x1920',
+        s: video_size,
         aidc: 'libvorbis',
         ab: '160k',
         vidc: 'libvpx',

@@ -1,4 +1,4 @@
-require_relative 'searchable'
+require_relative 'helpers/searchable'
 
 module KU
   module Media

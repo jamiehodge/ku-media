@@ -2,8 +2,6 @@ require 'bundler/setup'
 
 require_relative 'media/config/sequel'
 
-require_relative 'media/helpers'
-
 require_relative 'media/person'
 require_relative 'media/group'
 
@@ -25,3 +23,7 @@ require_relative 'media/proxy'
 
 require_relative 'media/license'
 require_relative 'media/consent'
+
+require_relative 'media/cache'
+require_relative 'media/helpers/url_scraper'
+

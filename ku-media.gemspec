@@ -22,5 +22,6 @@ Gem::Specification.new do |gem|
   gem.add_dependency  'addressable'
   gem.add_dependency  'nokogiri'
   gem.add_dependency  'queue_classic'
+  gem.add_dependency  'dalli'
 end
 
