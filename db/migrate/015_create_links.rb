@@ -3,7 +3,9 @@ require 'uri'
 Sequel.migration do
   up do
     create_table :links do
-      citext :url, primary_key: true
+      primary_key :id
+      
+      citext :url
       
       Integer :lock_version, default: 0
         
