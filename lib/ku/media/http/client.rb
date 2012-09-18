@@ -11,7 +11,7 @@ module KU
           @url = Addressable::URI.parse(url).normalize
         end
       
-        def valid?
+        def valid_url?
           !!IPSocket.getaddress(@url.host)
         rescue SocketError
           false

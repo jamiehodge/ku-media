@@ -16,7 +16,7 @@ module KU
       
       def validate
         super
-        errors.add(:url, 'Invalid URL') unless parsed_url.valid?
+        errors.add(:url, 'does not exist') unless client.valid_url?
       end
       
       private
