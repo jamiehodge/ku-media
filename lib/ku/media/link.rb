@@ -1,5 +1,6 @@
 require_relative 'cache'
-require_relative 'helpers/url_scraper'
+require_relative 'http/client'
+require_relative 'http/parser'
 
 module KU
   module Media
@@ -10,7 +11,22 @@ module KU
       many_to_many :items
       
       def title
-        Helpers::URLScraper.new(url).title
+        HTTP::Parser.new(body).title
+      end
+      
+      def validate
+        super
+        errors.add(:url, 'Invalid URL') unless parsed_url.valid?
+      end
+      
+      private
+      
+      def client
+        HTTP::Client.new url
+      end
+      
+      def body
+        client.get.body
       end
     end
   end

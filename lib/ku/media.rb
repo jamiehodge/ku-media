@@ -24,5 +24,4 @@ require_relative 'media/proxy'
 require_relative 'media/license'
 require_relative 'media/consent'
 
-require_relative 'media/cache'
-require_relative 'media/helpers/url_scraper'
+
