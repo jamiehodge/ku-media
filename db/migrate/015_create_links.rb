@@ -1,3 +1,5 @@
+require 'uri'
+
 Sequel.migration do
   up do
     create_table :links do
@@ -11,7 +13,7 @@ Sequel.migration do
       validate do
         presence :url
         max_length 255, :url
-        format %r{^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?}, :url
+        format %r{^(([^:/?#]+):)(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?}, :url
       end
     end
     
