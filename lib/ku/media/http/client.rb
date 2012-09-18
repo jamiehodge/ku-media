@@ -8,7 +8,7 @@ module KU
       class Client
       
         def initialize url
-          @url = Addressable::URI.parse(url).normalize
+          @url = Addressable::URI.parse(url.strip).normalize
         end
       
         def valid_url?
@@ -26,13 +26,24 @@ module KU
         def fetch uri_str, limit = 10
           raise ArgumentError, 'too many HTTP redirects' if limit == 0
         
-          response = Net::HTTP.get_response(URI(uri_str))
+          uri = Addressable::URI.parse(uri_str).normalize
+          
+          http = Net::HTTP.new uri.host, uri.port || uri.default_port
+          
+          if uri.scheme == 'https'
+            http.use_ssl = true
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+          end
+          
+          request = Net::HTTP::Get.new uri.path
+          response = http.request request
         
           case response
           when Net::HTTPSuccess then
             response
           when Net::HTTPRedirection then
             location = response['location']
+            warn "redirected to #{location}"
             fetch(location, limit - 1)
           else
             response.value
