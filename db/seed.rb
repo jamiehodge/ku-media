@@ -435,19 +435,19 @@ module KU
       video_size = '720x1280'
       thumb_size = '270x480'
       
-      Format.find_or_create id: 'poster', options: {
+      Format.find_or_create id: 'poster', extension: 'png', options: {
         f: 'image2',
         s: video_size,
         vframes: 1
       }.hstore
       
-      Format.find_or_create id: 'thumb', options: {
+      Format.find_or_create id: 'thumb', extension: 'png', options: {
         f: 'image2',
         s: thumb_size,
         vframes: 1
       }.hstore
       
-      Format.find_or_create id: 'mp4', options: {
+      Format.find_or_create id: 'mp4', extension: 'mp4', options: {
         f: 'mp4',
         s: video_size,
         aidc: 'aac',
@@ -460,7 +460,7 @@ module KU
         strict: -2
       }.hstore
       
-      Format.find_or_create id: 'webm', options: {
+      Format.find_or_create id: 'webm', extension: 'mp4', options: {
         f: 'webm',
         s: video_size,
         aidc: 'libvorbis',

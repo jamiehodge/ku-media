@@ -3,6 +3,7 @@ Sequel.migration do
     create_table :formats do
       citext :id, primary_key: true
       
+      citext :extension, null: false
       hstore :options, null: false
       
       Integer :lock_version, default: 0
@@ -14,7 +15,7 @@ Sequel.migration do
         presence [:id, :options]
       end
       
-      full_text_index :id
+      full_text_index [:id, :extension]
     end
     
     create_trigger :formats, :timestamp, :moddatetime, args: :updated_at, each_row: true, events: :update
