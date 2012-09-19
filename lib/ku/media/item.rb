@@ -20,6 +20,9 @@ module KU
       one_to_many :consents
   
       searchable :title, :description
+      
+      plugin :nested_attributes
+      nested_attributes :asset
     end
   end
 end
