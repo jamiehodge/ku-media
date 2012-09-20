@@ -17,8 +17,14 @@ module KU
           false
         end
       
-        def get
-          Cache.fetch(key: @url.to_s) { fetch @url }
+        def get options={}
+          options.merge! cache: false
+          
+          if options[:cache]
+            Cache.fetch(key: @url.to_s) { fetch @url }
+          else
+            fetch @url
+          end
         end
       
         private
