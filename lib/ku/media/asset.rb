@@ -23,6 +23,18 @@ module KU
         File.extname name
       end
       
+      def video?
+        !!(type =~ /^video/)
+      end
+      
+      def audio?
+        !!(type =~ /^audio/)
+      end
+      
+      def image?
+        !!(type =~ /^image/)
+      end
+      
       private
       
       def after_save
