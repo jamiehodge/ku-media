@@ -8,7 +8,7 @@ module KU
       plugin :optimistic_locking
       plugin :touch
       
-      one_to_many :items,     after_add: :nudge, after_remove: :nudge
+      one_to_many  :items,    after_add: :nudge, after_remove: :nudge
       
       many_to_many :authors, class: Group, right_key: :group_id,
           after_add: :nudge, after_remove: :nudge
