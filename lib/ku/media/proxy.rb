@@ -3,8 +3,6 @@ require_relative 'file_store/client'
 module KU
   module Media
     class Proxy < Sequel::Model
-      attr_accessor :tempfile
-      
       unrestrict_primary_key
       
       many_to_one :asset
@@ -21,7 +19,7 @@ module KU
       private
       
       def after_save
-        store.set asset_id, name, tempfile
+        store.set asset_id, name, transcode
       end
       
       def after_destroy
@@ -30,6 +28,10 @@ module KU
       
       def store
         FileStore::Client.new ENV['KU_MEDIA_FILE_STORE']
+      end
+      
+      def transcode
+        Transcoder.new(input: asset.path.to_s, options: format.options).perform
       end
     end
   end

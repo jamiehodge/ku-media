@@ -432,8 +432,8 @@ module KU
         Subcategory.find_or_create id: id, name: name, category_id: 112
       end
       
-      video_size = '720x1280'
-      thumb_size = '270x480'
+      video_size = '1280x720' # '720x1280'
+      thumb_size = '480x270'  # '270x480'
       
       Format.find_or_create id: 'poster', extension: 'png', options: {
         f: 'image2',
@@ -450,24 +450,22 @@ module KU
       Format.find_or_create id: 'mp4', extension: 'mp4', options: {
         f: 'mp4',
         s: video_size,
-        aidc: 'aac',
+        acodec: 'aac',
         ab: '160k',
-        vidc: 'libx264',
-        preset: 'slow',
-        preset: 'iPod640',
+        vcodec: 'libx264',
         vb: '1500k',
-        thread: 0,
+        threads: 0,
         strict: -2
       }.hstore
       
-      Format.find_or_create id: 'webm', extension: 'mp4', options: {
+      Format.find_or_create id: 'webm', extension: 'webm', options: {
         f: 'webm',
         s: video_size,
-        aidc: 'libvorbis',
+        acodec: 'libvorbis',
         ab: '160k',
-        vidc: 'libvpx',
+        vcodec: 'libvpx',
         vb: '1500k',
-        thread: 0,
+        threads: 0,
         strict: -2
       }.hstore
     end

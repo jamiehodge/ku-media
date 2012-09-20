@@ -28,5 +28,8 @@ require_relative 'media/consent'
 require_relative 'media/job/ping_podcast'
 require_relative 'media/job/mail'
 
+require_relative 'media/transcoder'
+
+
 
 
