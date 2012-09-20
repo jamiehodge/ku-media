@@ -6,7 +6,7 @@ module KU
       extend Searchable
 
       plugin :optimistic_locking
-      plugin :touch, associations: [:collection]
+      plugin :touch
   
       many_to_one :collection
       many_to_one :category
