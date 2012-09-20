@@ -6,15 +6,22 @@ module KU
       extend Searchable
   
       plugin :optimistic_locking
+      plugin :touch
       
-      one_to_many :items
+      one_to_many :items,     after_add: :nudge, after_remove: :nudge
       
-      many_to_many :authors, class: Group, right_key: :group_id
-      many_to_many :keywords
-      many_to_many :tags
-      many_to_many :links
+      many_to_many :authors, class: Group, right_key: :group_id,
+          after_add: :nudge, after_remove: :nudge
+          
+      many_to_many :keywords, after_add: :nudge, after_remove: :nudge
+      many_to_many :tags,     after_add: :nudge, after_remove: :nudge
+      many_to_many :links,    after_add: :nudge, after_remove: :nudge
       
       searchable :title, :description
+      
+      def nudge column=nil
+        touch
+      end
     end
   end
 end
