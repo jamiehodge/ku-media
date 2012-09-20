@@ -6,7 +6,9 @@ namespace :qc do
 
   desc 'Environment'
   task :environment do
-    # require_relative 'lib/ku/media/config/queue_classic'
+    require_relative 'config/queue_classic'
+    require_relative 'job/ping_podcast'
+    require_relative 'job/mail'
   end
 end
 
