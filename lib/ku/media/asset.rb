@@ -38,10 +38,12 @@ module KU
       private
       
       def after_save
+        super
         store.set id, name, tempfile
       end
       
       def after_destroy
+        super
         store.delete id, name
         store.delete id
       end

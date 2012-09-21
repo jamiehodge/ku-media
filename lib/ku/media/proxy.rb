@@ -19,10 +19,12 @@ module KU
       private
       
       def after_save
+        super
         store.set asset_id, name, transcode
       end
       
       def after_destroy
+        super
         store.delete asset_id, name
       end
       
